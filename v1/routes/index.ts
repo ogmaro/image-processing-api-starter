@@ -1,7 +1,8 @@
-import { Router } from "express";
-import converter from "./converter";
+import { Router } from 'express';
+import converter from './converter';
 const routes = Router();
 
-routes.use("/", converter);
+routes.use('/', converter);
+
 
 export default routes;
