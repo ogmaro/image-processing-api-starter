@@ -17,7 +17,7 @@ converter.post('/:id', async (req: Request, res: Response) => {
 });
 
 // convert image using image link
-converter.get('/link', async (req: Request, res: Response) => {
+converter.put('/', async (req: Request, res: Response) => {
   convert.link(req, res);
 });
 

@@ -24,7 +24,7 @@ converter.post('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function*
     sharpHandler_1.default.ID(req, res);
 }));
 // convert image using image link
-converter.get('/link', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+converter.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     sharpHandler_1.default.link(req, res);
 }));
 exports.default = converter;

@@ -27,7 +27,7 @@ function filePathOutput(file?: string, type?: string): string {
   }
 }
 
-function nameGenerator(): string {
+const nameGenerator = (): string => {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   let name = '';
 
@@ -37,7 +37,7 @@ function nameGenerator(): string {
   });
 
   return 'stutern' + name;
-}
+};
 
 //type Definitions
 type src = {
@@ -53,6 +53,10 @@ type RestP = {
   src?: src;
 };
 
-export type { RestP };
+type query = {
+  width?: number,
+  height?: number
+}
+export type { RestP, query };
 // test if it a string, number or undefined
 export default { ConvertToNumber, filePathInput, filePathOutput, nameGenerator };
