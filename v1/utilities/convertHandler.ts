@@ -4,6 +4,7 @@ import got from 'got';
 import fs from 'fs';
 import { Request, Response } from 'express';
 import data from './pexelsHandler';
+import sharpconverter from '../middleware/sharp.middleware';
 const sharpStream = sharp({
     failOnError: false
 });
@@ -87,25 +88,22 @@ const convert = {
                 }
             });
     },
-    file: async (req: Request, res: Response) => {
-        const pathVarIn = utile.filePathInput('icelandwaterfall', 'jpeg');
-        const pathVarOut = utile.filePathOutput('icelandwaterfall', 'jpeg');
-
-        const file = fs.readFileSync(pathVarIn);
-
+    file: async (res: Response, req?: Request) => {
+        const pathVarIn = utile.filePathInput(req?.body.name, req?.body.type);
+        const pathVarOut = utile.filePathOutput(req?.body.name, req?.body.type);
         try {
-            const response = await sharp(file)
-                .png()
-                .resize(
-                    utile.ConvertToNumber(Number(req.query.width)),
-                    utile.ConvertToNumber(Number(req.query.height))
-                )
-                .toFile(pathVarOut);
-            res.status(200);
-            res.send(response);
+            const file = fs.readFileSync(pathVarIn);
+            try {
+                const response = await sharpconverter(file, pathVarOut, req);
+                res.status(200);
+                res.send(response);
+            } catch (error) {
+                res.status(501);
+                console.log(error);
+            }
         } catch (error) {
-            res.status(501);
-            console.log(error);
+            res.status(404);
+            res.send({ status: 'unsuccessful', message: 'file path not found' });
         }
     }
 };

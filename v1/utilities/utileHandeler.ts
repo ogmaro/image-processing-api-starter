@@ -2,7 +2,7 @@ import path from 'path';
 
 const ConvertToNumber = (arg?: string | number): number => {
   const value = arg as unknown as number;
-  return value ? value : 320;
+  return value ? value : 100;
 };
 function filePathInput(file?: string, type?: string): string {
 
@@ -17,7 +17,7 @@ function filePathInput(file?: string, type?: string): string {
   }
 }
 function filePathOutput(file?: string, type?: string): string {
-
+  
   if (file) {
     return path.resolve(
       path.join(__dirname, `../../v1/routes/images/output/${file}.${type}`)

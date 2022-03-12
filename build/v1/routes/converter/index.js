@@ -13,18 +13,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const sharpHandler_1 = __importDefault(require("../../utilities/sharpHandler"));
+const convertHandler_1 = __importDefault(require("../../utilities/convertHandler"));
 const converter = (0, express_1.Router)();
 // convert image using filesystem
 converter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    sharpHandler_1.default.file(req, res);
+    convertHandler_1.default.file(res, req);
 }));
 // convert image using pixels ID
 converter.post('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    sharpHandler_1.default.ID(req, res);
+    convertHandler_1.default.ID(req, res);
 }));
 // convert image using image link
 converter.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    sharpHandler_1.default.link(req, res);
+    convertHandler_1.default.link(req, res);
 }));
 exports.default = converter;
