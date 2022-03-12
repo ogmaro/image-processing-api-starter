@@ -1,8 +1,8 @@
 import express, { Application, urlencoded } from 'express';
-import routes from './v1/routes/index';
-import { pageNotFound404 } from './v1/middleware/notfoundMiddleware';
-import logger from './v1/middleware/logger.middleware';
-import cache from './v1/middleware/cache.middleware';
+import routes from './src/v1/routes/index';
+import { pageNotFound404 } from './src/v1/middleware/notfoundMiddleware';
+import logger from './src/v1/middleware/logger.middleware';
+import cache from './src/v1/middleware/cache.middleware';
 
 const app: Application = express();
 

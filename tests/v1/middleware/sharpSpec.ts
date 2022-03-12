@@ -1,5 +1,5 @@
-import sharpConverter from '../../../v1/middleware/sharp.middleware';
-import utileHandeler from '../../../v1/utilities/utileHandeler';
+import sharpConverter from '../../../src/v1/middleware/sharp.middleware';
+import utileHandeler from '../../../src/v1/utilities/utileHandeler';
 import fs from 'fs';
 
 
