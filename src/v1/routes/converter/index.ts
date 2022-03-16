@@ -11,13 +11,8 @@ converter.get('/', cache, async (req: Request, res: Response) => {
   convert.file(res, req);
 });
 
-// convert image using pixels ID
-converter.post('/:id', async (req: Request, res: Response) => {
-  convert.ID(req, res);
-});
-
 // convert image using image link
-converter.put('/', async (req: Request, res: Response) => {
+converter.post('/', async (req: Request, res: Response) => {
   convert.link(req, res);
 });
 
