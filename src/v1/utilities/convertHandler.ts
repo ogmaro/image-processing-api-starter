@@ -16,8 +16,9 @@ const convert = {
         const ID = getnum !== 320.001 ? getnum : 2014429;
 
         const url_link = await data.url(ID) as unknown as string;
-
         const title = utile.nameGenerator();
+
+
         const pathVarOut = utile.filePathOutput(title, 'jpeg');
 
         const promises = [];
@@ -28,10 +29,9 @@ const convert = {
                     utile.ConvertToNumber(Number(req.query.width)),
                     utile.ConvertToNumber(Number(req.query.height))
                 )
-                .jpeg({ quality: 100 })
+                .jpeg({ quality: utile.ConvertToNumber(Number(req.query.width)) })
                 .toFile(pathVarOut)
         );
-
         got.stream(url_link).pipe(sharpStream);
 
         Promise.all(promises)

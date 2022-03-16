@@ -4,7 +4,7 @@ const ConvertToNumber = (arg?: string | number): number => {
   const value = arg as unknown as number;
   return value ? value : 100;
 };
-function filePathInput(file?: string, type?: string): string {
+const filePathInput = (file?: string, type?: string): string => {
 
   if (file) {
     return path.resolve(
@@ -15,17 +15,16 @@ function filePathInput(file?: string, type?: string): string {
       path.join(__dirname, '../../v1/routes/images/fjord.jpeg')
     );
   }
-}
-function filePathOutput(file?: string, type?: string): string {
-  
-  if (file) {
+};
+const filePathOutput = (file?: string, type?: string): string => {
+  if (file && type) {
     return path.resolve(
       path.join(__dirname, `../../v1/routes/images/output/${file}.${type}`)
     );
   } else {
-    return 'Path Error';
+    return 'Path error';
   }
-}
+};
 
 const nameGenerator = (): string => {
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];

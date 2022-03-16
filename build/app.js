@@ -23,10 +23,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importStar(require("express"));
-const index_1 = __importDefault(require("./v1/routes/index"));
-const notfoundMiddleware_1 = require("./v1/middleware/notfoundMiddleware");
-const logger_middleware_1 = __importDefault(require("./v1/middleware/logger.middleware"));
-const cache_middleware_1 = __importDefault(require("./v1/middleware/cache.middleware"));
+const index_1 = __importDefault(require("./src/v1/routes/index"));
+const notfoundMiddleware_1 = require("./src/v1/middleware/notfoundMiddleware");
+const logger_middleware_1 = __importDefault(require("./src/v1/middleware/logger.middleware"));
+const cache_middleware_1 = __importDefault(require("./src/v1/middleware/cache.middleware"));
 const app = (0, express_1.default)();
 app.use((0, express_1.urlencoded)({ extended: true }));
 app.use(express_1.default.json());

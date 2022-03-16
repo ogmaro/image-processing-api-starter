@@ -3,7 +3,7 @@ import utileHandeler from '../../../src/v1/utilities/utileHandeler';
 import fs from 'fs';
 
 
-fdescribe('Sharp Converter returns an object promise', () => {
+describe('Sharp Converter returns a promise', () => {
     it('Should return and object promise', () => {
         const pathVarIn = utileHandeler.filePathInput('icelandwaterfall', 'jpeg');
         const pathVarOut = utileHandeler.filePathOutput('icelandwaterfall', 'jpeg');
